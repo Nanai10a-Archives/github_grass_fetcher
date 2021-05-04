@@ -1,7 +1,7 @@
 {
   "name": "github_grass_fetcher",
   "version": "0.1.0",
-  "description": "use for getting GitHub's \"Grass\" (Contributions).",
+  "description": "use for getting GitHub's \"Grass\" (Contributions Graph).",
   "author": "Nanai10a",
   "license": "MIT",
   "scripts": {
