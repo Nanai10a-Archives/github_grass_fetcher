@@ -6,7 +6,8 @@ const run = async () => {
   const page = await browser.newPage();
   await page.goto(`https://github.com/${process.argv[2]}`);
 
-  await page.evaluate(() => {
+  const theme = process.argv[3];
+  await page.evaluate(`
     const elementList = document.getElementsByClassName("flex-shrink-0");
     let i = 0;
     while (true) {
@@ -18,8 +19,8 @@ const run = async () => {
       i++;
     }
 
-    document.querySelector("html").setAttribute("data-color-mode", "dark");
-  });
+    document.querySelector("html").setAttribute("data-color-mode", "${theme}");
+  `);
 
   await (await page.$(".js-yearly-contributions")).screenshot({ path: "./output.jpeg", type: "jpeg", quality: 100 });
 
@@ -27,3 +28,19 @@ const run = async () => {
 };
 
 run().then().catch(console.error);
+
+// Compile Test
+const _ = () => {
+  const elementList = document.getElementsByClassName("flex-shrink-0");
+  let i = 0;
+  while (true) {
+    const element = elementList.item(i);
+    if (!element) {
+      break;
+    }
+    element.remove();
+    i++;
+  }
+
+  document.querySelector("html").setAttribute("data-color-mode", "${theme}");
+};
