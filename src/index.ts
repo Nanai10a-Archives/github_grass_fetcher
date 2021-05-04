@@ -1,12 +1,10 @@
 import * as puppeteer from "puppeteer";
 
-const username = "";
-
 const run = async () => {
   const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
-  await page.goto(`https://github.com/${username}`);
+  await page.goto(`https://github.com/${process.argv[2]}`);
 
   await page.evaluate(() => {
     const elementList = document.getElementsByClassName("flex-shrink-0");
