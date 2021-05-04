@@ -1,7 +1,7 @@
 {
   "ts-node": {
     "compilerOptions": {
-      "target": "es6",
+      "target": "esnext",
       "module": "commonjs",
       "types": [
         "@types/node"
