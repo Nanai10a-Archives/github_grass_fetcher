@@ -1,0 +1,11 @@
+{
+  "ts-node": {
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "types": [
+        "@types/node"
+      ]
+    }
+  }
+}
