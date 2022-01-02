@@ -28,19 +28,3 @@ const run = async () => {
 };
 
 run().then().catch(console.error);
-
-// Compile Test
-const _ = () => {
-  const elementList = document.getElementsByClassName("flex-shrink-0");
-  let i = 0;
-  while (true) {
-    const element = elementList.item(i);
-    if (!element) {
-      break;
-    }
-    element.remove();
-    i++;
-  }
-
-  document.querySelector("html").setAttribute("data-color-mode", "${theme}");
-};
