@@ -1,10 +1,17 @@
 import * as puppeteer from "puppeteer";
 
+const username = process.argv[2];
+
+if (username == undefined) {
+  console.log("requires GitHub's username on arg(1)");
+  process.exit(1);
+}
+
 const run = async () => {
   const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
-  await page.goto(`https://github.com/${process.argv[2]}`);
+  await page.goto(`https://github.com/${username}`);
 
   const theme = process.argv[3];
   await page.evaluate(`
